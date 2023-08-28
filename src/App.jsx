@@ -1,16 +1,21 @@
 import React from 'react';
-import './App.css'
+import './App.css';
+
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Navbar from './components/navbar/Navbar';
+import ContactList from './components/contacts/ContactList';
 
 function App() {
 
   return (
-    <>
-      <div>Hello</div>
-      <button className='btn btn-primary me-2'>
-        <i className='fa fa-home'></i>
-        Hello</button>
-      <button className='btn btn-primary me-2'>Hello</button>
-    </>
+    <React.Fragment>
+      <Navbar/>
+      <ContactList/>
+      <Routes>
+        <Route path='/' element={<Navigate to='/contacts/list'/>}/>
+        <Route path='/contacts/list' element={<ContactList/>}/>
+      </Routes>
+    </React.Fragment>
   )
 }
 
